@@ -3,7 +3,6 @@
 #include <string.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include <time.h>
 #include <unistd.h>
 
 #include "graphics.h"
@@ -11,6 +10,9 @@
 #include "control.h"
 #include "timer.h"
 #include "SDL.h"
+
+#undef _GNU_SOURCE
+#include <time.h>
 
 #define max(x, y) (x > y ? x : y)
 #define min(x, y) (x < y ? x : y)

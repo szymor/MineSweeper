@@ -6,3 +6,5 @@ nbproject/**
 *.o
 opk/*.dge
 dist/**
+minesweeper
+

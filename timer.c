@@ -1,5 +1,7 @@
 #include "timer.h"
 #include <stdlib.h>
+
+#undef _GNU_SOURCE
 #include <time.h>
 
 uint32_t GetTickCount()

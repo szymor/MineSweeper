@@ -1,0 +1,31 @@
+TARGET = minesweeper
+OBJS = control.o \
+display.o \
+fixmath.o  \
+graphics.o \
+main.o \
+timer.o
+
+ARCH=arm-linux-
+CC=$(ARCH)gcc
+CXX=$(ARCH)g++
+STRIP=$(ARCH)strip
+
+BINBASE = /opt/miyoo/bin
+SDL_CFLAGS  := $(shell $(BINBASE)/pkg-config --cflags sdl)
+SDL_LIBS    := $(shell $(BINBASE)/pkg-config --libs sdl)
+
+CFLAGS = $(SDL_CFLAGS)
+LDFLAGS = $(SDL_LIBS)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $< -o $@
+
+.cpp.o:
+	$(CXX) $(CFLAGS) -c $< -o $@
+
+all: $(OBJS)
+	$(CC) $(OBJS) -o $(TARGET) $(LDFLAGS) && $(STRIP) $(TARGET)
+
+clean:
+	rm -f $(OBJS) $(TARGET)

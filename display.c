@@ -6,7 +6,8 @@
 SDL_Surface* screen;
 
 void display_init() {
-    screen = SDL_SetVideoMode(display_width, display_height, 16, SDL_DOUBLEBUF | SDL_HWSURFACE);
+    screen = SDL_SetVideoMode(display_width, display_height, 16, SDL_SWSURFACE);
+    SDL_ShowCursor(SDL_DISABLE);
 }
 
 void* display_addr() {
